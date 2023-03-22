@@ -1,0 +1,7 @@
+FROM debian:buster
+
+COPY mariadb.sh .
+RUN chmod +x mariadb.sh
+EXPOSE 3306
+
+CMD bash mariadb.sh
