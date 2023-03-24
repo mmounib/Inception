@@ -2,7 +2,7 @@ FROM debian:buster
 
 RUN apt-get update && apt-get install -y php7.3 php7.3-fpm php7.3-mysql && apt-get install -y curl
 
-
+RUN apt install -y mariadb-client
 RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
 
@@ -16,6 +16,7 @@ RUN mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
 RUN sed -i -r "s/database_name_here/$db_name/1" wp-config.php && sed -i -r "s/username_here/$db_user/1" wp-config.php
 RUN sed -i -r "s/password_here/$db_pass/1" wp-config.php && sed -i -r "s/localhost/mariadb/1" wp-config.php
 
+COPY wordpress/www.conf /etc/php/7.3/fpm/pool.d
 
 EXPOSE 9000
 
