@@ -50,7 +50,7 @@ services:
       - .env
     volumes:
       - test:/var/lib/mysql
-    restart: on-failure
+    restart: on-failure 
     
 volumes:
   test:
