@@ -5,11 +5,11 @@ RUN apt-get update && apt-get install -y mariadb-server
 COPY mariadb/mariadb.sh .
 COPY mariadb/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 
-RUN mkdir -p /var/run/mysqld 
-# RUN chmod +x mariadb.sh
+RUN mkdir -p /var/run/mysqld
+RUN chmod +x mariadb.sh
 
 EXPOSE 3306
 
-RUN sh mariadb.sh
+# RUN sh mariadb.sh
 
-CMD mysqld
+CMD ["./mariadb.sh"]
