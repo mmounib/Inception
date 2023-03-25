@@ -48,24 +48,24 @@ services:
       - inception
     env_file:
       - .env
-    # volumes:
-    #   - test:/var/lib/mysql
+    volumes:
+      - test:/var/lib/mysql
     restart: on-failure
     
 volumes:
   test:
   wordpress_volume:
-    name: wordpress_volume
-    driver: local
-    driver_opts:
-      device: /Users/mmounib/Desktop/Inception/wordpress_volume/
-      o: bind
-      type: none
+    # name: wordpress_volume
+    # driver: local
+    # driver_opts:
+    #   device: /Users/mmounib/Desktop/Inception/wordpress_volume
+    #   o: bind
+    #   type: none
   mariadb_volume:
-    name: mariadb_volume
-    driver: local
-    driver_opts:
-      device: /Users/mmounib/Desktop/inception/mariadb_volume
-      o: bind
-      type: none
+    # name: mariadb_volume
+    # driver: local
+    # driver_opts:
+    #   device: /Users/mmounib/Desktop/inception/mariadb_volume
+    #   o: bind
+    #   type: none
     
