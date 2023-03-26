@@ -14,16 +14,16 @@ services:
     depends_on:
       - wordpress
     build:
-      context: .
-      dockerfile: dockerfile
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
     ports:
       - 443:443
     restart: always
   
   wordpress:
     build:
-      context: .
-      dockerfile: wordpress/dockerfile
+      context: ./requirements/wordpress
+      dockerfile: Dockerfile
     expose:
       - "9000"
     container_name: wordpress
@@ -39,8 +39,8 @@ services:
   
   mariadb:
     build:
-      context: .
-      dockerfile: mariadb/dockerfile
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
     expose:
       - "3306"
     container_name: mariadb
