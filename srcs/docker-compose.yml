@@ -2,7 +2,6 @@ version: '3'
 
 networks:
   inception:
-    name: inception
 
 services:
   nginx:
@@ -53,10 +52,11 @@ services:
     env_file:
       - .env
     volumes:
-      - mariadb_volume:/var/lib/mysql
+      - test:/var/lib/mysql
     restart: on-failure 
     
 volumes:
+  test:
   wordpress_volume:
     driver: local
     driver_opts:
