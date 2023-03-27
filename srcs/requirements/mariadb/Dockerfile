@@ -1,5 +1,9 @@
 FROM debian:buster
 
+ARG db_name \
+    db_user \
+    db_pass
+
 RUN apt-get update && apt-get install -y mariadb-server
 
 COPY ./tools/mariadb.sh .
@@ -10,6 +14,6 @@ RUN chmod +x mariadb.sh
 
 EXPOSE 3306
 
-# RUN sh mariadb.sh
+RUN sh ./mariadb.sh
 
-CMD ["/mariadb.sh"]
+ENTRYPOINT ["mysqld"]
