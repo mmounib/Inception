@@ -52,11 +52,10 @@ services:
     env_file:
       - .env
     volumes:
-      - test:/var/lib/mysql
+      - mariadb_volume:/var/lib/mysql
     restart: on-failure 
     
 volumes:
-  test:
   wordpress_volume:
     driver: local
     driver_opts:
